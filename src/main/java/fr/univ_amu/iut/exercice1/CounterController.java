@@ -27,6 +27,9 @@ public class CounterController implements Initializable {
         counter.set(counter.get() + 1);
     }
 
+    @FXML
+    public void decrement(ActionEvent actionEvent){counter.set(counter.get() - 1);}
+
     public int getCounter() {
         return counter.get();
     }
@@ -39,10 +42,12 @@ public class CounterController implements Initializable {
         return counter;
     }
 
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         System.out.println("Initializing SayHelloController...");
         System.out.println("Location = " + location);
         System.out.println("Resources = " + resources);
+        counterLabel.textProperty().bind(counter.asString());
     }
 }
